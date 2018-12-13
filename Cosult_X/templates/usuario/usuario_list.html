@@ -1,0 +1,84 @@
+{% extends "visitas/base_Visitas.html" %}
+{% block title %}Visitas{% endblock title %}
+{% block content %}
+{% include "nav.html" %}
+{% block producto %}
+    <div class="wrapper">
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Usuario
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Inicio</a></li>
+            <li  class="active">####</li>
+            <li> <a href="#">####</a> </li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-xs-12">
+
+                <div class="box box-primary">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">
+                      <a href="{% url 'usuario:usuraio_crear'%}" class="btn btn-success">Nuevo</a>
+
+
+                    </h3>
+                    <div class="box-tools pull-right">
+                      <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div><!-- /.box-tools -->
+                  </div><!-- /.box-header -->
+                  <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                             <th>N°</th>
+							<td>ID</td>
+                           <td>Nombre</td>
+                              <td>Apellidos</td>
+		                	<td>Nombre usuario</td>
+		                	<td>Correo electronico</td>
+                           </tr>
+                        </thead>
+                      <tbody>
+                      {% for solicitud in object_list %}
+
+                          <tr>
+							<td>{{ forloop.counter}}</td>
+                            <td>{{ solicitud.id }}</td>
+		                	<td>{{ solicitud.first_name}}</td>
+			                <td>{{ solicitud.last_name }} </td>
+		                	<td>{{solicitud.username}}</td>
+		                	<td>{{ solicitud.email}}</td>
+
+                              <td class="text-right">
+
+
+                                  <a href="{% url 'usuario:usuario_eliminar' solicitud.id %}" class="btn btn-danger"><span class="glyphicon glyphicon-trash">Eliminar</span></a>
+
+                              </td>
+                          </tr>
+                      {% endfor %}
+
+                          </tbody>
+                      </table>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+      <footer class="main-footer">
+
+ {% endblock producto %}
+{% endblock content %}
+
+
+
+

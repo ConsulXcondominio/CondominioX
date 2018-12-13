@@ -1,0 +1,61 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+{% block extrastatic %}
+	{% endblock %}
+    <title>{% block title %}Login {% endblock %}</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="{% static 'css/sb-admin.css" rel="stylesheet' %}">
+
+       <style>
+    html {
+        height:100%;
+        width:100%;
+    }
+    body{
+        background:#8ba987 url('{% static 'imagen/loginn.jpeg' %}') no-repeat center center;
+        background-size:100% 100%;
+    }
+    </style>
+</head>
+  </head>
+
+  <body class="bg-dark"    >
+
+{% block img %}
+<center>
+<img src="{% static 'imagen/consulx.jpeg' %}" width="300px" height="70px" >
+</center>
+{% endblock %}
+  {% block content %}
+	<h4>	Bloque de contenido		</h4>
+	{% endblock %}
+
+  {% block footer %}
+	{% endblock%}
+    <!-- Bootstrap core JavaScript-->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+	{% block extrajs %}
+	{% endblock %}
+  </body>
+
+</html>

@@ -1,0 +1,95 @@
+{% extends "visitas/base_Visitas.html" %}
+{% block title %}Visitas{% endblock title %}
+{% block content %}
+{% include "nav.html" %}
+{% block producto %}
+    <div class="wrapper">
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Visita
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Inicio</a></li>
+            <li  class="active">####</li>
+            <li> <a href="#">####</a> </li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-xs-12">
+
+                <div class="box box-primary">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">
+                      <a href="{% url 'visita:visita_crear'%}" class="btn btn-success">Nuevo</a>
+
+
+                    </h3>
+                    <div class="box-tools pull-right">
+                      <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div><!-- /.box-tools -->
+                  </div><!-- /.box-header -->
+                  <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                             <th>N°</th>
+							<th>ID</th>
+                              <th>Nombre</th>
+                              <th>Apellidos</th>
+                              <th>C.I.</th>
+                              <th>Observacion</th>
+                              <th>Fecha Entrada</th>
+                              <th>Fecha Salida</th>
+								<th>Tempo de visita</th>
+								<th>Modo de entrada</th>
+								<th>Propietario</th>
+                               <th>Acciones</th>
+                           </tr>
+                        </thead>
+                      <tbody>
+                      {% for m in object_list %}
+
+                          <tr>
+                              <td>{{ forloop.counter}}</td>
+                              <td>{{ m.id }} </td>
+                              <td>{{ m.nombre }}</td>
+                              <td>{{ m.apellidos}}</td>
+							  <td>{{ m.cedula}}</td>
+                              <td>{{m.observacion}}</td>
+                             <td>{{m.fechaEntrada}}</td>
+							  <td>{{m.fechaSalida}}</td>
+							<td>{{m.tiempoVisitaTiempo}}  {{m.tiempoHoras}}</td>
+							 <td>{{m.modoEntrada}}</td>
+							 <td>{{m.propietario}}</td>
+
+                              <td class="text-right">
+
+								  <a href="{% url 'visita:visita_editar' m.id %}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil">Editar__</span></a>
+                                  <a href="{% url 'visita:visita_eliminar' m.id %}" class="btn btn-danger"><span class="glyphicon glyphicon-trash">Eliminar</span></a>
+
+                              </td>
+                          </tr>
+                      {% endfor %}
+
+                          </tbody>
+                      </table>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+      <footer class="main-footer">
+
+ {% endblock producto %}
+{% endblock content %}
+
+
+
+

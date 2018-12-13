@@ -1,0 +1,46 @@
+
+<!---->
+<!-- agregamos la herencia de la plantilla base.html-->
+
+{% extends 'pagina_principal/menu.html' %}
+
+   {% block titulo2 %}
+		<li class="breadcrumb-item">
+
+              <h3 href="#">MODULO DE RESERVAS</h3>
+            </li>
+<H3> <li class="breadcrumb-item active"> /  Eliminar</li></H3>
+{% endblock %}
+
+
+
+
+    {% block menu %}
+
+<div class="container" >
+	 <div class="row" >
+      <div class="card card-login mx-auto mt-5">
+<div class="card-header"> <h4>Eliminar Dato</h4>    </div>
+        <div class="card-body">
+<form method="post" >
+
+    {% csrf_token %}
+    <h3 >Desea eliminar el Registro de :  {{ object.propietario }}?</h3>
+    <!-- pintara las etiquetasa en pantalla todas ellas  para ser especifico con las etiquetas a pintar ver video 12-->
+    {{ form.as_p }}
+<br>
+    <br>
+    <button class="btn btn-danger" type="submit" >Eliminar</button>
+    <a class="btn btn-primary" href="{% url 'reserva:reserva_listar' %}" >Cancelar</a>
+</form>
+
+      </div>
+     </div>
+</div>
+</div>
+
+
+
+
+{% endblock %}
+

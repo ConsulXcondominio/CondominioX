@@ -1,0 +1,154 @@
+{% extends "visitas/base_Visitas.html" %}
+{% block title %}Visitas{% endblock title %}
+{% block content %}
+{% include "nav.html" %}
+{% block producto %}
+
+
+<div class="wrapper">
+      <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+         <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Añadir Visitas
+          </h1>
+
+
+
+        </section>
+        <!-- Main content -->
+    <section class="content">
+      <!-- START ALERTS AND CALLOUTS -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box box-info">
+            <div class="box-header with-border">
+            <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div><!-- /.box-tools -->
+
+            </div><!-- /.box-header -->
+
+              <div class="box-body">
+                    <div class="row" id ="contenido">
+                      <div class="col-lg-12">
+                      <form id="form" class="form-horizontal" method="post">
+                    {% csrf_token %}
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+
+
+                                 <div class="form-group has-success has-feedback ">
+                                    <label class="control-label col-sm-3" for="id_cedula">C.I.</label>
+                                    <div class="col-sm-6">
+                                        {{ form.cedula }}
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group has-success has-feedback ">
+                                    <label class="control-label col-sm-3" for="id_nombre">Nombre</label>
+                                    <div class="col-sm-6">
+                                        {{form.nombre}}
+                                    </div>
+                                </div>
+
+                                <div class="form-group has-success has-feedback ">
+                                    <label class="control-label col-sm-3" for="id_apellidos">Apellido:</label>
+                                    <div class="col-sm-6">
+                                       {{form.apellidos}}
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group has-success has-feedback  ">
+                                    <label class="control-label col-sm-3" for="id_obsevacion">Observacion</label>
+                                    <div class="col-sm-7">
+                                        {{form.observacion}}
+                                    </div>
+                                </div>
+
+                                <div class="form-group has-success has-feedback ">
+                                  <label class="col-md-2 control-label" for="id_fechaEntrada">{{ form.fechaEntrada.label_tag }}</label>
+                                  <div class="col-md-7">
+                                      <div class="input-group">
+                                          <div class="input-group-addon">
+                                              <i class="fa fa-calendar"></i>
+                                          </div>
+                                          {{ form.fechaEntrada }}
+                                          </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group has-success has-feedback  ">
+                                  <label class="col-md-2 control-label" for="id_fechaSalida">{{ form.fechaSalida.label_tag }}</label>
+                                  <div class="col-md-7">
+                                      <div class="input-group">
+                                          <div class="input-group-addon">
+                                              <i class="fa fa-calendar"></i>
+                                          </div>
+                                          {{ form.fechaSalida }}
+                                         </div>
+                                  </div>
+                                </div>
+
+
+
+                                 <div class="form-group has-success has-feedback ">
+                                    <label class="control-label col-sm-2" for="id_tiempoVisitaTiempo">Tiempo:</label>
+                                  <div class="col-sm-3">
+                                        {{ form.tiempoVisitaTiempo }}
+                                  </div>
+
+
+                                        <label class="control-label col-sm-0" for="id_tiempoHoras"></label>
+                                        <div class="col-sm-4">
+                                            {{ form.tiempoHoras }}
+                                         </div>
+
+                                </div>
+
+
+
+
+
+
+                            <div class="form-group has-success has-feedback ">
+                                    <label class="control-label col-sm-2" for="id_modoEntrada">Modo de entrada:</label>
+                                  <div class="col-sm-4">
+                                        {{ form.modoEntrada }}
+                                  </div>
+                            </div>
+
+
+                             <div class="form-group has-success has-feedback ">
+                                    <label class="control-label col-sm-2" for="id_propietario">Propietario:</label>
+                                  <div class="col-sm-10">
+                                        {{ form.propietario }}
+                                  </div>
+                            </div>
+
+
+                                </div>
+
+
+                        <div class="pull-right">
+                            <div class="btn-group">
+                            <button type="submit" class="btn btn-lg btn-info"><i class="fa fa-floppy-o"></i>Guardar</button>
+                        </div>
+                        </div>
+                    </form>
+
+                      </div>
+                    </div><!--/.row-->
+            </div><!-- /.box body -->
+          </div><!-- /.box info -->
+          </div><!--col-->
+        </div><!-- /.row -->
+    </section><!-- /.content -->
+  </div><!-- /.content-wrapper -->
+</div>
+
+ {% endblock producto %}
+{% endblock content %}
